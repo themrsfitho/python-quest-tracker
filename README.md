@@ -14,17 +14,17 @@ The Python Quest Tracker is a command-line interface (CLI) app that lets users c
 - Simulated AI-style quest generation  
 - CLI user interaction and input handling  
 
-This project was designed to showcase Python programming skills suitable for junior Python developer, automation, and scripting roles.
+This project showcases Python programming skills suitable for junior Python developer, automation, and scripting roles.
 
 ---
 
 ## ⚙️ Features
 
-- **User management**: Create and switch between multiple users.  
-- **Quest tracking**: Add, list, and complete quests with points and difficulty levels.  
-- **AI-generated quests (simulated)**: Generate personalized quests for your goals using a mock AI engine.  
-- **Persistence**: All users and quests are saved in `data/users.json`.  
-- **Clean CLI interface**: Simple, text-based menu navigation for easy interaction.  
+- **User management**: Create and switch between multiple users  
+- **Quest tracking**: Add, list, and complete quests with points and difficulty levels  
+- **AI-generated quests (simulated)**: Generate personalized quests for your goals  
+- **Persistence**: All users and quests are saved in `data/users.json`  
+- **Clean CLI interface**: Simple, text-based menu navigation for easy interaction  
 
 ---
 
