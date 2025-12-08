@@ -1,1 +1,15 @@
+# Bytecode
 __pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.env
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python test cache
+.pytest_cache/

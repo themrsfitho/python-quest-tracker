@@ -1,0 +1,36 @@
+{
+  "Evie": {
+    "points": 10,
+    "quests": [
+      {
+        "name": "Walk more - Quick Win",
+        "description": "Do a short action to help with the goal: Walk more. Keep it under 100 characters.",
+        "points": 10,
+        "completed": true
+      },
+      {
+        "name": "Workout - Mini Habit \u2014 Mini",
+        "description": "Do \u2014 A quick activity to support Workout \u2014 keep it manageable and repeatable.",
+        "points": 14,
+        "completed": false
+      }
+    ]
+  },
+  "Patrick": {
+    "points": 0,
+    "quests": [
+      {
+        "name": "HIIT Cardio",
+        "description": "Get 30 minutes of HIIT cardio in",
+        "points": 15,
+        "completed": false
+      },
+      {
+        "name": "walk more Step 1",
+        "description": "Do a short action to help with the goal: walk more. Keep it under 100 characters.",
+        "points": 12,
+        "completed": false
+      }
+    ]
+  }
+}

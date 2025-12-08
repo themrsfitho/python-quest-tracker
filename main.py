@@ -1,22 +1,17 @@
-# main.py
+"""
+Main CLI application for Python Quest Tracker.
+Handles user input, menu navigation, and quest management.
+"""
+
 import sys
 from tracker import QuestTracker
-from utils import generate_quests  # supports 'mock' and 'ai_sim' modes
+from utils import generate_quests
 from quest import Quest
-
-import os
-import json
-
-# Ensure data folder and file exist
-os.makedirs("data", exist_ok=True)
-if not os.path.exists("data/users.json"):
-    with open("data/users.json", "w") as f:
-        json.dump({}, f)
-
 
 DATA_FILE = "data/users.json"
 
 def print_menu():
+    """Prints the main menu options."""
     print("\n=== Python Quest Tracker ===")
     print("1) Create or switch user")
     print("2) Add a quest manually")
@@ -27,12 +22,14 @@ def print_menu():
     print("0) Exit without saving")
 
 def input_choice(prompt="> "):
+    """Safely takes user input and handles EOF/KeyboardInterrupt."""
     try:
         return input(prompt).strip()
     except (EOFError, KeyboardInterrupt):
         return "0"
 
 def main():
+    """Main program loop."""
     tracker = QuestTracker(data_file=DATA_FILE)
     current_user = None
 
@@ -74,7 +71,6 @@ def main():
             print(f"Added quest '{name}'.")
 
         elif choice == "3":
-            # AI generate (choose mode)
             if not current_user:
                 print("Create or switch to a user first (option 1).")
                 continue
@@ -87,30 +83,19 @@ def main():
                 n = int(n) if n else 5
             except ValueError:
                 n = 5
-
-            # Choose mode: mock or ai_sim
-            mode = input_choice("Choose generation mode — 'mock' or 'ai_sim' (default ai_sim): ").strip().lower()
-            if mode not in ("mock", "ai_sim"):
+            mode = input_choice("Choose generation mode — 'mock' or 'ai_sim' (default ai_sim): ").lower()
+            if mode not in ["mock", "ai_sim"]:
                 mode = "ai_sim"
-
             print(f"Generating quests... (mode={mode})")
-            try:
-                generated = generate_quests(goal, n=n, mode=mode)
-            except Exception as e:
-                print("Error generating quests:", e)
-                continue
+            generated = generate_quests(goal, n=n, mode=mode)
 
-            # show and ask to add
             for i, gd in enumerate(generated, 1):
-                name = gd.get("name") if isinstance(gd, dict) else gd["name"]
-                points = gd.get("points", 10) if isinstance(gd, dict) else gd["points"]
-                desc = gd.get("description", "") if isinstance(gd, dict) else gd["description"]
-                print(f"\n[{i}] {name} ({points} pts)\n    {desc}")
+                print(f"\n[{i}] {gd['name']} ({gd['points']} pts)\n    {gd['description']}")
 
             add_all = input_choice("\nAdd all generated quests to your list? (y/n): ").lower()
             if add_all == "y":
                 for gd in generated:
-                    q = Quest(gd["name"], description=gd.get("description", ""), points=int(gd.get("points", 10)))
+                    q = Quest(gd["name"], description=gd["description"], points=gd["points"])
                     current_user.add_quest(q)
                 print(f"Added {len(generated)} quests to {current_user.username}.")
             else:
@@ -120,7 +105,7 @@ def main():
                     for idx in nums:
                         if 1 <= idx <= len(generated):
                             gd = generated[idx - 1]
-                            q = Quest(gd["name"], description=gd.get("description", ""), points=int(gd.get("points", 10)))
+                            q = Quest(gd["name"], description=gd["description"], points=gd["points"])
                             current_user.add_quest(q)
                     print("Selected quests added.")
 

@@ -1,4 +1,3 @@
-# Quest generation prompt template
 Generate {n} daily quests for the user goal: "{goal}".
-Each quest must be concise, actionable, and contain a short description and an integer point value.
-Prefer concrete tasks (e.g., "Drink 500ml water", "10-minute mobility").
+Each quest should include a short name, a one-sentence description and an integer point value.
+Prefer concrete, repeatable micro-actions.

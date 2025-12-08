@@ -1,13 +1,13 @@
 {
-    "name_template": [
+  "name_templates": [
     "{goal_short} - Quick Win",
     "{goal_short} - Mini Habit",
     "{goal_short} - Boost"
-],
-"description_templates": [
+  ],
+  "description_templates": [
     "Do a short action to help with the goal: {goal}. Keep it under 100 characters.",
-    "Small, focused action toward: {goal}. Aim for consistency.",
+    "Small, focused action to progress toward: {goal}. Aim for consistency.",
     "A quick activity to support {goal} — keep it manageable and repeatable."
-],
-"points_range": [8, 15]
+  ],
+  "points_range": [8, 15]
 }
